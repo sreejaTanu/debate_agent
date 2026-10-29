@@ -1,0 +1,194 @@
+{
+  "description": "Evaluation question set for multi-model debate agent. 30 open-ended questions across 6 categories.",
+  "version": "1.0",
+  "categories": {
+    "strategy": "Business and technology strategy questions with multiple valid approaches",
+    "ethics": "Ethical dilemmas with no single right answer",
+    "analysis": "Complex analytical questions requiring multi-faceted reasoning",
+    "creative": "Questions requiring creative problem-solving and novel thinking",
+    "technical": "Deep technical questions with genuine tradeoffs",
+    "policy": "Public policy questions with competing values"
+  },
+  "questions": [
+    {
+      "id": "Q01",
+      "category": "strategy",
+      "question": "Should a mid-size B2B SaaS company prioritize expanding into adjacent markets or deepening its current product for existing customers? What framework would you use to decide?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q02",
+      "category": "strategy",
+      "question": "A company has a profitable legacy product and a fast-growing but unprofitable new product. Engineering talent is scarce. How should they allocate their engineering team, and what are the risks of each approach?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q03",
+      "category": "strategy",
+      "question": "What is the strongest argument for and against a startup choosing to be open-source from day one? Under what conditions does each argument dominate?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q04",
+      "category": "strategy",
+      "question": "How should a traditional manufacturing company approach digital transformation when its workforce has limited technical skills and its margins are already thin?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q05",
+      "category": "strategy",
+      "question": "When does vertical integration make sense for a technology company versus relying on best-of-breed vendors? Give concrete examples of when each approach failed.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q06",
+      "category": "ethics",
+      "question": "Should companies be required to disclose when customers are interacting with an AI rather than a human? What are the strongest arguments on each side, and where would you draw the line?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q07",
+      "category": "ethics",
+      "question": "A hospital has limited ICU capacity during a crisis. What ethical framework should guide triage decisions, and how do you weigh utilitarian outcomes against individual rights?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q08",
+      "category": "ethics",
+      "question": "Should social media platforms be legally liable for algorithmic amplification of harmful content, or does that create unacceptable censorship risks? How do you balance these?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q09",
+      "category": "ethics",
+      "question": "Is it ethical for a company to use employee monitoring software that tracks keystrokes and screenshots? Under what conditions might it be justified, and what safeguards are needed?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q10",
+      "category": "ethics",
+      "question": "Should autonomous vehicles be programmed with explicit ethical rules for unavoidable accident scenarios, or should they optimize purely for minimizing total harm? What are the implications of each?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q11",
+      "category": "analysis",
+      "question": "Why do most corporate digital transformation initiatives fail, and what distinguishes the ones that succeed? Provide a framework for diagnosing whether a transformation is on track.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q12",
+      "category": "analysis",
+      "question": "What are the second-order effects of widespread remote work on urban economies, innovation, and social mobility? Which effects are most underestimated?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q13",
+      "category": "analysis",
+      "question": "Analyze the tradeoffs between microservices and monolithic architectures. When is the complexity of microservices genuinely worth it, and when is it organizational theater?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q14",
+      "category": "analysis",
+      "question": "What are the most important factors that determine whether a two-sided marketplace will achieve network effects, and what are the warning signs that it won't?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q15",
+      "category": "analysis",
+      "question": "How should a government think about regulating AI development? Compare the EU, US, and China approaches and evaluate which is most likely to achieve both innovation and safety.",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q16",
+      "category": "creative",
+      "question": "Design a system for a city of 1 million people that reduces food waste by at least 50% within 5 years. What are the key leverage points and what would you try first?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q17",
+      "category": "creative",
+      "question": "How would you redesign the job interview process to be both more predictive of actual performance and less biased? What evidence supports your approach?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q18",
+      "category": "creative",
+      "question": "Propose a mechanism for funding public goods (parks, open-source software, basic research) that doesn't rely primarily on taxation. What are its failure modes?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q19",
+      "category": "creative",
+      "question": "How would you design an education system from scratch for the age of AI, where factual recall is less valuable but critical thinking and adaptability are more important?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q20",
+      "category": "creative",
+      "question": "Design a reputation system for an online marketplace that is resistant to manipulation, fair to new sellers, and actually predictive of transaction quality.",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q21",
+      "category": "technical",
+      "question": "What is the right level of test coverage for a fast-moving startup versus an enterprise system handling financial transactions? How should the testing strategy differ, and what are the risks of each approach?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q22",
+      "category": "technical",
+      "question": "When should an engineering team build their own infrastructure versus using managed cloud services? What are the hidden costs of each that teams typically underestimate?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q23",
+      "category": "technical",
+      "question": "Compare eventual consistency and strong consistency in distributed systems. For a global e-commerce platform, which approach would you recommend for inventory management and why?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q24",
+      "category": "technical",
+      "question": "What are the most important unsolved problems in making large language models reliable enough for high-stakes decision-making in medicine or law?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q25",
+      "category": "technical",
+      "question": "How should a team decide between fine-tuning a foundation model versus building a RAG pipeline for a domain-specific application? What are the failure modes of each?",
+      "difficulty": "medium"
+    },
+    {
+      "id": "Q26",
+      "category": "policy",
+      "question": "Should governments mandate algorithmic transparency for AI systems that make decisions affecting people's lives (loans, hiring, sentencing)? What are the practical limitations?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q27",
+      "category": "policy",
+      "question": "What is the best approach to regulating cryptocurrency: ban it, treat it as securities, create a new regulatory framework, or leave it largely unregulated? What does each approach get wrong?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q28",
+      "category": "policy",
+      "question": "How should intellectual property law evolve to handle AI-generated content? Should AI outputs be copyrightable, and who should own the rights?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q29",
+      "category": "policy",
+      "question": "What is the strongest case for and against universal basic income as a response to AI-driven automation? What evidence from existing pilot programs is most relevant?",
+      "difficulty": "hard"
+    },
+    {
+      "id": "Q30",
+      "category": "policy",
+      "question": "Should there be an international treaty governing AI development, similar to nuclear non-proliferation? What would it need to include to be effective, and what makes it likely to fail?",
+      "difficulty": "hard"
+    }
+  ]
+}
