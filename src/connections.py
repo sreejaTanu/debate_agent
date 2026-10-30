@@ -5,7 +5,6 @@ Handles AWS Bedrock session creation and model initialization.
 
 import os
 from pathlib import Path
-from typing import Optional
 
 import boto3
 import yaml
@@ -42,7 +41,8 @@ def load_config() -> dict:
     return _CONFIG_CACHE
 
 
-def _build_session(region_name: str, profile_name: Optional[str] = None) -> boto3.Session:
+def _build_session(region_name: str) -> boto3.Session:
+    """Build a boto3 session from environment variables only (no ~/.aws profiles)."""
     access_key = os.getenv("AWS_ACCESS_KEY_ID")
     secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
     session_token = os.getenv("AWS_SESSION_TOKEN")
@@ -55,11 +55,15 @@ def _build_session(region_name: str, profile_name: Optional[str] = None) -> boto
             region_name=region_name,
         )
 
-    profile_name = profile_name or os.getenv("AWS_PROFILE") or os.getenv("AWS_DEFAULT_PROFILE")
-    if profile_name:
-        return boto3.Session(profile_name=profile_name, region_name=region_name)
+    # Bedrock API key: boto3 reads AWS_BEARER_TOKEN_BEDROCK from the environment itself.
+    if os.getenv("AWS_BEARER_TOKEN_BEDROCK"):
+        return boto3.Session(region_name=region_name)
 
-    return boto3.Session(region_name=region_name)
+    raise EnvironmentError(
+        "No AWS credentials in environment. Set AWS_ACCESS_KEY_ID + AWS_SECRET_ACCESS_KEY "
+        "(optionally AWS_SESSION_TOKEN), or AWS_BEARER_TOKEN_BEDROCK. "
+        "To test without credentials, run with --dry-run."
+    )
 
 
 def get_bedrock_client(region_name: str = "us-east-1"):

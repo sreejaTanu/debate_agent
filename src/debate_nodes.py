@@ -75,8 +75,11 @@ def debate_round_node(state: DebateState, models: List[DebateModel]) -> DebateSt
         own = next((a for a in prev_answers if a["model_label"] == model.label), None)
         others = [a for a in prev_answers if a["model_label"] != model.label]
 
+        # Others see each answer plus that model's critique of the rest, so challenges can be answered.
         other_text = "\n\n---\n\n".join(
-            f"**{a['model_label']}:**\n{a['content']}" for a in others
+            f"**{a['model_label']}:**\n{a['content']}"
+            + (f"\n\n*{a['model_label']}'s critique of the others:*\n{a['critique']}" if a.get("critique") else "")
+            for a in others
         )
 
         prompt = DEBATE_ROUND_USER.format(
@@ -85,11 +88,14 @@ def debate_round_node(state: DebateState, models: List[DebateModel]) -> DebateSt
             other_answers=other_text,
         )
         response = model.invoke(DEBATE_ROUND_SYSTEM, prompt)
+        # Keep the critique out of the answer itself, or it leaks into scoring and the final answer.
+        critique, revised = _split_at_marker(response.content, "REVISED ANSWER")
 
         answer: ModelAnswer = {
             "model_label": model.label,
             "vendor": model.vendor,
-            "content": response.content,
+            "content": revised,
+            "critique": critique,
             "round": round_num,
             "input_tokens": response.input_tokens,
             "output_tokens": response.output_tokens,
@@ -104,10 +110,15 @@ def debate_round_node(state: DebateState, models: List[DebateModel]) -> DebateSt
 
 
 def _parse_score(text: str) -> Dict[str, float]:
-    """Parse dimension scores from model output."""
+    """Parse dimension scores from model output.
+
+    Tolerates the drift small models produce: "**Accuracy:** 8", "ACCURACY: 8 / 10", and
+    misspelt labels such as "COMPLETENENESS: 8/10" (matched on the word stem).
+    """
+    stems = {"completeness": "complet", "accuracy": "accura", "reasoning": "reason", "nuance": "nuanc"}
     scores = {}
     for dim in ["completeness", "accuracy", "reasoning", "nuance"]:
-        pattern = rf"{dim.upper()}:\s*(\d+(?:\.\d+)?)\s*/\s*10"
+        pattern = rf"\b{stems[dim]}\w*\**\s*:\s*\**\s*(\d+(?:\.\d+)?)\s*(?:/\s*10)?"
         match = re.search(pattern, text, re.IGNORECASE)
         if match:
             scores[dim] = min(float(match.group(1)), 10.0)
@@ -261,6 +272,19 @@ def synthesis_node(state: DebateState, models: List[DebateModel]) -> DebateState
     return state
 
 
+def _split_at_marker(text: str, marker: str):
+    """Split at the last '<marker>:' line → (text before, text after). No marker → ('', text)."""
+    parts = re.split(rf"^\W*{marker}:?\W*$|{marker}:", text, flags=re.IGNORECASE | re.MULTILINE)
+    if len(parts) > 1 and parts[-1].strip():
+        return "".join(parts[:-1]).strip(), parts[-1].strip()
+    logger.warning(f"Output had no '{marker}:' marker; using the full text")
+    return "", text
+
+
+def _extract_final_answer(text: str) -> str:
+    return _split_at_marker(text, "FINAL ANSWER")[1]
+
+
 def final_merge_node(state: DebateState, models: List[DebateModel]) -> DebateState:
     """The base model merges improvements, then a self-consistency check verifies quality."""
     logger.info("=== FINAL MERGE ===")
@@ -290,25 +314,45 @@ def final_merge_node(state: DebateState, models: List[DebateModel]) -> DebateSta
         improvements=improvements_text,
     )
     merge_response = base_model.invoke(FINAL_MERGE_SYSTEM, prompt)
-    merged_content = merge_response.content
-    _log_transcript(state, "final_merge", base_model.label, merged_content)
+    # Full output (with ACCEPT/REJECT decisions) goes to the transcript; only the answer is kept.
+    _log_transcript(state, "final_merge", base_model.label, merge_response.content)
+    merged_content = _extract_final_answer(merge_response.content)
 
-    checker = next((m for m in models if m.label != base_model.label), base_model)
+    # Structural guard, independent of model judgement: a cut-off or collapsed merge never
+    # replaces the base answer (small models have voted ACCEPT on a truncated merge).
+    if merge_response.truncated or len(merged_content) < 0.5 * len(base_answer["content"]):
+        reason = "truncated" if merge_response.truncated else (
+            f"{len(merged_content)} chars vs base {len(base_answer['content'])}")
+        state["final_answer"] = base_answer["content"]
+        logger.warning(f"  Merge rejected by length guard ({reason}); using base answer")
+        _log_transcript(state, "self_consistency_result", "guard", f"Merge rejected ({reason}); base answer kept")
+        return state
+
+    # Every non-base model votes on the merge, so no single model decides whether it stands.
     check_prompt = SELF_CONSISTENCY_USER.format(
         question=state["question"],
         base_answer=base_answer["content"],
         merged_answer=merged_content,
     )
-    check_response = checker.invoke(SELF_CONSISTENCY_SYSTEM, check_prompt)
-    _log_transcript(state, "self_consistency", checker.label, check_response.content)
+    checkers = [m for m in models if m.label != base_model.label]
+    reverts = 0
+    for checker in checkers:
+        check_response = checker.invoke(SELF_CONSISTENCY_SYSTEM, check_prompt)
+        _log_transcript(state, "self_consistency", checker.label, check_response.content)
+        # Read the VERDICT line only; a bare substring check also matches an echoed "ACCEPT or REVERT".
+        verdict = re.search(r"VERDICT\**\s*:\**\s*(ACCEPT|REVERT)", check_response.content, re.IGNORECASE)
+        if verdict and verdict.group(1).upper() == "REVERT":
+            reverts += 1
 
-    if "REVERT" in check_response.content.upper():
+    tally = f"{reverts}/{len(checkers)} voted REVERT"
+    if reverts > len(checkers) / 2:
         state["final_answer"] = base_answer["content"]
-        logger.info(f"  Self-consistency check: REVERT — merge degraded quality, using base answer")
-        _log_transcript(state, "self_consistency_result", checker.label, "REVERTED to base answer")
+        logger.info(f"  Quality gate: {tally} — merge degraded quality, using base answer")
+        _log_transcript(state, "self_consistency_result", "gate", f"REVERTED to base answer ({tally})")
     else:
         state["final_answer"] = merged_content
-        logger.info(f"  Self-consistency check: ACCEPT — merge approved")
+        logger.info(f"  Quality gate: {tally} — merge approved")
+        _log_transcript(state, "self_consistency_result", "gate", f"Merge accepted ({tally})")
 
     logger.info(f"  Final answer produced: {len(state['final_answer'])} chars")
     return state

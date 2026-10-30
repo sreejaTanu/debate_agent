@@ -1,0 +1,70 @@
+# Multi-model debate agent configuration — FREE / LOCAL edition.
+#
+# All models are open-weight and run locally through Ollama (https://ollama.com):
+# no account, no API key, $0 spend. One-time setup:
+#   ollama pull llama3.2:3b && ollama pull qwen2.5:3b && ollama pull gemma3:4b && ollama pull phi4-mini && ollama pull ministral-3:3b
+#
+# `vendor` = how the model is reached (ollama | bedrock | openai | mock).
+# `model_vendor` = the company that built the model; the brief requires >= 2 distinct.
+# Sizes chosen to fit a 6 GB laptop GPU. For the AWS Bedrock setup use
+#   CONFIG_PATH=config/config.bedrock.yaml
+
+# Debate participants: 3 models, 3 vendors (Meta, Alibaba, Google).
+models:
+  - id: llama3.2:3b
+    vendor: ollama
+    model_vendor: meta
+    label: Llama 3.2 3B
+    num_ctx: 16384
+  - id: qwen2.5:3b
+    vendor: ollama
+    model_vendor: alibaba
+    label: Qwen 2.5 3B
+    num_ctx: 16384
+  - id: gemma3:4b
+    vendor: ollama
+    model_vendor: google
+    label: Gemma 3 4B
+    num_ctx: 16384
+
+debate:
+  # Du et al. (2023): 3 agents x 2 rounds captures most of the gain.
+  num_rounds: 2
+  # Stop early when every model's answer is stable round-over-round (TF-IDF cosine).
+  convergence_threshold: 0.85
+  temperature: 0.7
+  # Debate-round and merge outputs hold a critique/decision list PLUS a full answer;
+  # 1024 cut 4 of 6 round outputs off mid-sentence, so 2048. Prompts carry ~5 such
+  # outputs, hence num_ctx 16384 above.
+  max_tokens: 2048
+
+evaluation:
+  # Judges come from vendors NOT in the debate (Microsoft, Mistral AI), so no model scores its own output.
+  # Tried and dropped, both for not fitting a 6 GB GPU (they spill to CPU, ~10-20x slower):
+  #   gpt-oss:20b (13 GB) and mistral:7b (5.6 GB; it also caught only 62% of damaged answers alone).
+  judge_models:
+    - id: phi4-mini
+      vendor: ollama
+      model_vendor: microsoft
+      label: Phi-4 mini (judge)
+      num_ctx: 8192
+    - id: ministral-3:3b
+      vendor: ollama
+      model_vendor: mistral
+      label: Ministral 3 3B (judge)
+      num_ctx: 8192
+  judge_temperature: 0.0
+  scoring_dimensions:
+    - name: completeness
+      weight: 0.25
+    - name: accuracy
+      weight: 0.25
+    - name: reasoning
+      weight: 0.25
+    - name: nuance
+      weight: 0.25
+
+spend_ceiling:
+  # Local models cost $0; the ceiling still guards any paid model added to this file.
+  max_total_usd: 20.00
+  warn_at_pct: 80

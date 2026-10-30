@@ -1,0 +1,143 @@
+{
+  "question_id": "Q06",
+  "question": "Should companies be required to disclose when customers are interacting with an AI rather than a human? What are the strongest arguments on each side, and where would you draw the line?",
+  "category": "ethics",
+  "individual_scores": {
+    "Llama 3.2 3B": {
+      "avg_weighted_total": 8.5,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 8.5,
+        "reasoning": 8.5,
+        "nuance": 8.0
+      },
+      "answer_chars": 4142
+    },
+    "Qwen 2.5 3B": {
+      "avg_weighted_total": 8.625,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 8.5,
+        "reasoning": 8.5,
+        "nuance": 8.5
+      },
+      "answer_chars": 3991
+    },
+    "Gemma 3 4B": {
+      "avg_weighted_total": 8.625,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 8.5,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 6194
+    }
+  },
+  "debate_score": {
+    "avg_weighted_total": 8.625,
+    "avg_dimensions": {
+      "completeness": 9.0,
+      "accuracy": 8.5,
+      "reasoning": 9.0,
+      "nuance": 8.0
+    },
+    "answer_chars": 2939
+  },
+  "base_answer_model": "Gemma 3 4B",
+  "debate_rounds_run": 2,
+  "judge_scores": {
+    "debate": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Mistral 7B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 8.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.5
+      }
+    ],
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Mistral 7B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 8.0,
+          "reasoning": 8.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.25
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Mistral 7B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 8.0,
+          "reasoning": 8.0,
+          "nuance": 9.0
+        },
+        "weighted_total": 8.5
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Mistral 7B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 8.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.5
+      }
+    ]
+  },
+  "best_individual_model": "Qwen 2.5 3B",
+  "best_individual_score": 8.625,
+  "debate_wins": false,
+  "margin": 0.0
+}

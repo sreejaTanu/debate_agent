@@ -1,0 +1,222 @@
+{
+  "question_id": "Q01",
+  "question": "Should a mid-size B2B SaaS company prioritize expanding into adjacent markets or deepening its current product for existing customers? What framework would you use to decide?",
+  "category": "strategy",
+  "individual_scores": {
+    "Llama 3.2 3B": {
+      "avg_weighted_total": 8.75,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 4171
+    },
+    "Qwen 2.5 3B": {
+      "avg_weighted_total": 8.75,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 4095
+    },
+    "Gemma 3 4B": {
+      "avg_weighted_total": 9.0,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.0
+      },
+      "answer_chars": 5723
+    }
+  },
+  "debate_score": {
+    "avg_weighted_total": 8.75,
+    "avg_dimensions": {
+      "completeness": 9.0,
+      "accuracy": 9.0,
+      "reasoning": 9.0,
+      "nuance": 8.0
+    },
+    "answer_chars": 2922
+  },
+  "base_answer_model": "Llama 3.2 3B",
+  "debate_usage": {
+    "model_calls": 20,
+    "total_input_tokens": 35352,
+    "total_output_tokens": 12320,
+    "wall_clock_seconds": 314.7078146934509
+  },
+  "debate_rounds_run": 2,
+  "pairwise_preference_for_debate": {
+    "Llama 3.2 3B": 1.0,
+    "Qwen 2.5 3B": 1.0,
+    "Gemma 3 4B": 0.5
+  },
+  "pairwise_verdicts": {
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      }
+    ]
+  },
+  "judge_scores": {
+    "debate": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ]
+  },
+  "best_individual_model": "Gemma 3 4B",
+  "best_individual_score": 9.0,
+  "debate_wins": false,
+  "margin": -0.25
+}

@@ -1,0 +1,128 @@
+{
+  "method": "absolute",
+  "questions": [
+    "Q01",
+    "Q06",
+    "Q11",
+    "Q16",
+    "Q21",
+    "Q26"
+  ],
+  "pairs_per_judge": 24,
+  "judges": [
+    "Phi-4 mini (judge)",
+    "Ministral 3 3B (judge)"
+  ],
+  "detection_rate": {
+    "Phi-4 mini (judge)": 0.7083333333333334,
+    "Ministral 3 3B (judge)": 0.75,
+    "panel": 0.8333333333333334
+  },
+  "per_perturbation": {
+    "truncate": {
+      "target_dimension": "completeness",
+      "Phi-4 mini (judge)": {
+        "detected": 2,
+        "ties": 4,
+        "n": 6,
+        "avg_total_drop": 0.25,
+        "avg_target_dim_drop": 0.33
+      },
+      "Ministral 3 3B (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.79,
+        "avg_target_dim_drop": 0.83
+      },
+      "panel": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.52,
+        "avg_target_dim_drop": 0.58
+      }
+    },
+    "factual_errors": {
+      "target_dimension": "accuracy",
+      "Phi-4 mini (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.83,
+        "avg_target_dim_drop": 1.33
+      },
+      "Ministral 3 3B (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 1.42,
+        "avg_target_dim_drop": 2.17
+      },
+      "panel": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 1.12,
+        "avg_target_dim_drop": 1.75
+      }
+    },
+    "shuffle": {
+      "target_dimension": "reasoning",
+      "Phi-4 mini (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.62,
+        "avg_target_dim_drop": 0.83
+      },
+      "Ministral 3 3B (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 1.38,
+        "avg_target_dim_drop": 1.67
+      },
+      "panel": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 1.0,
+        "avg_target_dim_drop": 1.25
+      }
+    },
+    "one_sided": {
+      "target_dimension": "nuance",
+      "Phi-4 mini (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.62,
+        "avg_target_dim_drop": 0.83
+      },
+      "Ministral 3 3B (judge)": {
+        "detected": 3,
+        "ties": 3,
+        "n": 6,
+        "avg_total_drop": 0.42,
+        "avg_target_dim_drop": 1.0
+      },
+      "panel": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.52,
+        "avg_target_dim_drop": 0.92
+      }
+    }
+  },
+  "avg_chars_removed_pct": {
+    "truncate": 64.1,
+    "factual_errors": -6.4,
+    "shuffle": 2.4,
+    "one_sided": 35.0
+  },
+  "pass_threshold": 0.8,
+  "passed": true,
+  "conclusion": "The judge panel ranked the original above the damaged copy in 83% of 24 pairs (6 questions x 4 kinds of damage). It reliably detects quality loss."
+}

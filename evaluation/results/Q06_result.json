@@ -1,0 +1,222 @@
+{
+  "question_id": "Q06",
+  "question": "Should companies be required to disclose when customers are interacting with an AI rather than a human? What are the strongest arguments on each side, and where would you draw the line?",
+  "category": "ethics",
+  "individual_scores": {
+    "Llama 3.2 3B": {
+      "avg_weighted_total": 9.0,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.0
+      },
+      "answer_chars": 4167
+    },
+    "Qwen 2.5 3B": {
+      "avg_weighted_total": 9.0,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.0
+      },
+      "answer_chars": 4731
+    },
+    "Gemma 3 4B": {
+      "avg_weighted_total": 9.0,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.0
+      },
+      "answer_chars": 6352
+    }
+  },
+  "debate_score": {
+    "avg_weighted_total": 8.75,
+    "avg_dimensions": {
+      "completeness": 8.5,
+      "accuracy": 9.0,
+      "reasoning": 8.5,
+      "nuance": 9.0
+    },
+    "answer_chars": 7828
+  },
+  "base_answer_model": "Qwen 2.5 3B",
+  "debate_usage": {
+    "model_calls": 18,
+    "total_input_tokens": 34061,
+    "total_output_tokens": 11312,
+    "wall_clock_seconds": 279.9234836101532
+  },
+  "debate_rounds_run": 2,
+  "pairwise_preference_for_debate": {
+    "Llama 3.2 3B": 0.0,
+    "Qwen 2.5 3B": 0.0,
+    "Gemma 3 4B": 0.25
+  },
+  "pairwise_verdicts": {
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      }
+    ]
+  },
+  "judge_scores": {
+    "debate": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 8.0,
+          "accuracy": 9.0,
+          "reasoning": 8.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.25
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ],
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ]
+  },
+  "best_individual_model": "Llama 3.2 3B",
+  "best_individual_score": 9.0,
+  "debate_wins": false,
+  "margin": -0.25
+}

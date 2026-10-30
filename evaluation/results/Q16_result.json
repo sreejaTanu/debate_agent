@@ -1,0 +1,222 @@
+{
+  "question_id": "Q16",
+  "question": "Design a system for a city of 1 million people that reduces food waste by at least 50% within 5 years. What are the key leverage points and what would you try first?",
+  "category": "creative",
+  "individual_scores": {
+    "Llama 3.2 3B": {
+      "avg_weighted_total": 8.375,
+      "avg_dimensions": {
+        "completeness": 8.5,
+        "accuracy": 9.0,
+        "reasoning": 8.5,
+        "nuance": 7.5
+      },
+      "answer_chars": 5013
+    },
+    "Qwen 2.5 3B": {
+      "avg_weighted_total": 8.75,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 4429
+    },
+    "Gemma 3 4B": {
+      "avg_weighted_total": 8.75,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 6369
+    }
+  },
+  "debate_score": {
+    "avg_weighted_total": 8.75,
+    "avg_dimensions": {
+      "completeness": 9.0,
+      "accuracy": 9.0,
+      "reasoning": 9.0,
+      "nuance": 8.0
+    },
+    "answer_chars": 4223
+  },
+  "base_answer_model": "Llama 3.2 3B",
+  "debate_usage": {
+    "model_calls": 20,
+    "total_input_tokens": 44227,
+    "total_output_tokens": 13932,
+    "wall_clock_seconds": 473.5090072154999
+  },
+  "debate_rounds_run": 2,
+  "pairwise_preference_for_debate": {
+    "Llama 3.2 3B": 0.75,
+    "Qwen 2.5 3B": 0.75,
+    "Gemma 3 4B": 0.25
+  },
+  "pairwise_verdicts": {
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "TIE"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "TIE"
+      }
+    ]
+  },
+  "judge_scores": {
+    "debate": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 8.0,
+          "accuracy": 9.0,
+          "reasoning": 8.0,
+          "nuance": 7.0
+        },
+        "weighted_total": 8.0
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ]
+  },
+  "best_individual_model": "Qwen 2.5 3B",
+  "best_individual_score": 8.75,
+  "debate_wins": false,
+  "margin": 0.0
+}

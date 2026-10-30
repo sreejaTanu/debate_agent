@@ -1,0 +1,65 @@
+# Multi-model debate agent configuration.
+#
+# `vendor` = API provider used to reach the model (bedrock | openai | mock).
+# `model_vendor` = the company that built the model; the brief requires >= 2 distinct.
+# Credentials come from environment variables only (see .env.example).
+
+aws:
+  region_name: us-east-1
+
+# Debate participants: 3 models, 3 vendors (Anthropic, Meta, Mistral), one provider (Bedrock).
+models:
+  - id: us.anthropic.claude-sonnet-4-5-20250929-v1:0
+    vendor: bedrock
+    model_vendor: anthropic
+    label: Claude Sonnet 4.5
+  - id: us.meta.llama3-3-70b-instruct-v1:0
+    vendor: bedrock
+    model_vendor: meta
+    label: Llama 3.3 70B
+  - id: mistral.mistral-large-2402-v1:0
+    vendor: bedrock
+    model_vendor: mistral
+    label: Mistral Large
+
+debate:
+  # Du et al. (2023): 3 agents x 2 rounds captures most of the gain; more rounds add cost, little quality.
+  num_rounds: 2
+  # Stop early when every model's answer is stable round-over-round (TF-IDF cosine).
+  convergence_threshold: 0.85
+  temperature: 0.7
+  max_tokens: 2048
+
+evaluation:
+  # Judges are deliberately from vendors NOT in the debate (Amazon, Cohere, OpenAI),
+  # so no model ever scores its own (or its own vendor's) output.
+  judge_models:
+    - id: us.amazon.nova-pro-v1:0
+      vendor: bedrock
+      model_vendor: amazon
+      label: Nova Pro (judge)
+    - id: cohere.command-r-plus-v1:0
+      vendor: bedrock
+      model_vendor: cohere
+      label: Command R+ (judge)
+    - id: gpt-4o
+      vendor: openai
+      model_vendor: openai
+      label: GPT-4o (judge)
+      optional: true          # skipped with a warning if OPENAI_API_KEY is not set
+  judge_temperature: 0.0
+  scoring_dimensions:
+    - name: completeness
+      weight: 0.25
+    - name: accuracy
+      weight: 0.25
+    - name: reasoning
+      weight: 0.25
+    - name: nuance
+      weight: 0.25
+
+spend_ceiling:
+  # Per-process budget. Can only LOWER the hard cap in src/models.py (HARD_CEILING_USD).
+  # A full 30-question evaluation costs roughly $10-15 at the prices in models.py.
+  max_total_usd: 20.00
+  warn_at_pct: 80

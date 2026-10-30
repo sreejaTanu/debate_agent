@@ -29,8 +29,10 @@ YOUR PREVIOUS ANSWER:
 OTHER MODELS' ANSWERS:
 {other_answers}
 
-First, state what you think is WRONG or WEAK in each other answer.
-Then provide your revised answer, explaining what you changed and what you deliberately kept."""
+First, state what you think is WRONG or WEAK in each other answer, and what you changed or
+deliberately kept in your own answer and why.
+Then write a line containing only "REVISED ANSWER:" followed by your complete revised answer to
+the question. The revised answer must stand on its own: do not mention the other models or this debate in it."""
 
 PEER_SCORE_SYSTEM = """You are evaluating another model's answer to a question.
 Score it on four dimensions, each from 0 to 10:
@@ -97,8 +99,9 @@ BASE ANSWER:
 SUGGESTED IMPROVEMENTS:
 {improvements}
 
-For each suggestion, briefly state whether you ACCEPT or REJECT it and why.
-Then produce the final merged answer."""
+First, for each suggestion, briefly state whether you ACCEPT or REJECT it and why.
+Then write a line containing only "FINAL ANSWER:" followed by the merged answer itself —
+no preamble, no list of decisions, nothing after the answer."""
 
 SELF_CONSISTENCY_SYSTEM = """You are a quality gate for a multi-model debate system.
 Compare the merged answer against the original base answer.

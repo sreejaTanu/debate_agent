@@ -1,0 +1,43 @@
+{
+  "total_questions": 1,
+  "debate_win_count": 0,
+  "debate_tie_count": 1,
+  "debate_loss_count": 0,
+  "debate_win_rate": 0.0,
+  "debate_non_loss_rate": 1.0,
+  "avg_margin_over_best_individual": 0.0,
+  "debate_avg_score": 8.625,
+  "individual_model_avg_scores": {
+    "Llama 3.2 3B": 8.5,
+    "Qwen 2.5 3B": 8.625,
+    "Gemma 3 4B": 8.625
+  },
+  "best_overall_individual": "Qwen 2.5 3B",
+  "vs_best_overall": {
+    "model": "Qwen 2.5 3B",
+    "wins": 0,
+    "losses": 0,
+    "ties": 1,
+    "avg_margin": 0.0,
+    "wilcoxon_p_value": null
+  },
+  "avg_answer_chars": {
+    "debate": 2939.0,
+    "Qwen 2.5 3B": 3991.0
+  },
+  "per_category": {
+    "ethics": {
+      "debate_wins": 0,
+      "total": 1,
+      "avg_margin": 0.0,
+      "win_rate": 0.0
+    }
+  },
+  "conclusion": "On 1 questions, the debate answer beat Qwen 2.5 3B (best model overall) on 0, lost on 0, average margin +0.00/10 (Wilcoxon not computed (too few non-tied questions)). Against the per-question oracle (whichever model scored highest on each question) it won 0, tied 1, lost 0, margin +0.00. The debate answer does NOT beat the best single model on this set. That is a finding, not a failure: the extra cost is not justified by quality here.",
+  "judges": [
+    "Phi-4 mini (judge)",
+    "Mistral 7B (judge)"
+  ],
+  "dry_run": false,
+  "questions_requested": 1
+}

@@ -29,8 +29,8 @@ def save_transcript_json(state: DebateState, output_path: str) -> str:
     }
 
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-    with open(output_path, "w") as f:
-        json.dump(transcript_data, f, indent=2, default=str)
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(transcript_data, f, indent=2, default=str, ensure_ascii=False)
     return output_path
 
 
@@ -40,7 +40,8 @@ def save_transcript_markdown(state: DebateState, output_path: str) -> str:
     lines.append(f"**Date:** {datetime.now().strftime('%Y-%m-%d %H:%M')}")
     lines.append(f"**Question:** {state['question']}")
     lines.append(f"**Models:** {', '.join(set(a['model_label'] for a in state['answers']))}")
-    lines.append(f"**Debate Rounds:** {state['num_rounds']}")
+    lines.append(f"**Debate Rounds:** {state['current_round']} of {state['num_rounds']} max"
+                 + (" (stopped early: answers converged)" if state.get("converged") else ""))
     lines.append("")
 
     lines.append("---")
@@ -57,14 +58,20 @@ def save_transcript_markdown(state: DebateState, output_path: str) -> str:
         lines.append(f"*Tokens: {a['input_tokens']} in / {a['output_tokens']} out | Latency: {a['latency_ms']:.0f}ms*")
         lines.append("")
 
-    for r in range(1, state["num_rounds"] + 1):
+    # Use rounds actually run; early stopping on convergence can end before num_rounds.
+    for r in range(1, state["current_round"] + 1):
         lines.append("---")
         lines.append("")
         lines.append(f"## Phase 2: Debate Round {r}")
         lines.append("")
         round_answers = [a for a in state["answers"] if a["round"] == r]
         for a in round_answers:
-            lines.append(f"### {a['model_label']} (revised)")
+            if a.get("critique"):
+                lines.append(f"### {a['model_label']} — critique of the others")
+                lines.append("")
+                lines.append(a["critique"])
+                lines.append("")
+            lines.append(f"### {a['model_label']} — revised answer")
             lines.append("")
             lines.append(a["content"])
             lines.append("")
@@ -87,6 +94,12 @@ def save_transcript_markdown(state: DebateState, output_path: str) -> str:
         )
     lines.append("")
 
+    lines.append("#### Why each score was given")
+    lines.append("")
+    for s in state["peer_scores"]:
+        lines.append(f"- **{s['scorer']} → {s['scored_model']}:** {s['justification'].strip()}")
+    lines.append("")
+
     lines.append("### Aggregated Scores")
     lines.append("")
     for model, score in sorted(state["aggregated_scores"].items(), key=lambda x: -x[1]):
@@ -106,6 +119,21 @@ def save_transcript_markdown(state: DebateState, output_path: str) -> str:
         lines.append("")
         lines.append(c["suggestions"])
         lines.append("")
+
+    merge_phases = [p for p in state["transcript"] if p["phase"].startswith(("final_merge", "self_consistency"))]
+    if merge_phases:
+        lines.append("---")
+        lines.append("")
+        lines.append("## Phase 5: Merge and Quality Gate")
+        lines.append("")
+        lines.append("The base model merges suggestions; every other model votes on whether the merge degraded "
+                     "the answer, and it is reverted only if a majority say so.")
+        lines.append("")
+        for p in merge_phases:
+            lines.append(f"### {p['phase']} — {p['model']}")
+            lines.append("")
+            lines.append(p["content"])
+            lines.append("")
 
     lines.append("---")
     lines.append("")

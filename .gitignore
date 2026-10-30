@@ -12,3 +12,5 @@ evaluation/results/*.json
 .pytest_cache/
 .coverage
 htmlcov/
+transcripts_dry_run/
+evaluation/results_dry_run/

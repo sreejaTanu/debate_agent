@@ -132,6 +132,8 @@ def run_debate(question: str, config: Optional[dict] = None) -> DebateState:
     }
 
     logger.info(f"Starting debate on: {question[:100]}...")
+    tracker = get_spend_tracker()
+    before = tracker.snapshot()
     start = time.time()
 
     result = compiled_graph.invoke(initial_state)
@@ -139,13 +141,13 @@ def run_debate(question: str, config: Optional[dict] = None) -> DebateState:
     elapsed = time.time() - start
     logger.info(f"Debate completed in {elapsed:.1f}s")
 
-    total_input = sum(a.get("input_tokens", 0) for a in result["answers"])
-    total_output = sum(a.get("output_tokens", 0) for a in result["answers"])
-    tracker = get_spend_tracker()
+    # Every model call in this debate (answers, scores, synthesis, merge, gate), not just answers.
+    after = tracker.snapshot()
     result["token_usage"] = {
-        "total_input_tokens": total_input,
-        "total_output_tokens": total_output,
-        "total_answers_tracked": len(result["answers"]),
+        "model_calls": after["calls"] - before["calls"],
+        "total_input_tokens": after["input_tokens"] - before["input_tokens"],
+        "total_output_tokens": after["output_tokens"] - before["output_tokens"],
+        "debate_spend_usd": round(after["usd"] - before["usd"], 4),
         "cumulative_spend_usd": round(tracker.total_usd, 4),
         "spend_ceiling_usd": tracker.max_usd,
         "wall_clock_seconds": elapsed,

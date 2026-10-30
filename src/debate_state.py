@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
-from typing import Any, Dict, List, Optional, TypedDict
+from typing import Any, Dict, List, NotRequired, Optional, TypedDict
 
 
 class ModelAnswer(TypedDict):
     model_label: str
     vendor: str
     content: str
+    critique: NotRequired[str]  # debate rounds only: this model's critique of the others
     round: int
     input_tokens: int
     output_tokens: int

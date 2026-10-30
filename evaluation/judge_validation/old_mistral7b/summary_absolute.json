@@ -1,0 +1,128 @@
+{
+  "questions": [
+    "Q01",
+    "Q06",
+    "Q11",
+    "Q16",
+    "Q21",
+    "Q26"
+  ],
+  "pairs_per_judge": 24,
+  "judges": [
+    "Phi-4 mini (judge)",
+    "Mistral 7B (judge)"
+  ],
+  "detection_rate": {
+    "Phi-4 mini (judge)": 0.7083333333333334,
+    "Mistral 7B (judge)": 0.625,
+    "panel": 0.8333333333333334
+  },
+  "per_perturbation": {
+    "truncate": {
+      "target_dimension": "completeness",
+      "Phi-4 mini (judge)": {
+        "detected": 2,
+        "ties": 4,
+        "n": 6,
+        "avg_total_drop": 0.25,
+        "avg_target_dim_drop": 0.33
+      },
+      "Mistral 7B (judge)": {
+        "detected": 4,
+        "ties": 2,
+        "n": 6,
+        "avg_total_drop": 0.21,
+        "avg_target_dim_drop": 0.0
+      },
+      "panel": {
+        "detected": 4,
+        "ties": 2,
+        "n": 6,
+        "avg_total_drop": 0.23,
+        "avg_target_dim_drop": 0.17
+      }
+    },
+    "factual_errors": {
+      "target_dimension": "accuracy",
+      "Phi-4 mini (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.83,
+        "avg_target_dim_drop": 1.33
+      },
+      "Mistral 7B (judge)": {
+        "detected": 2,
+        "ties": 4,
+        "n": 6,
+        "avg_total_drop": 0.12,
+        "avg_target_dim_drop": 0.0
+      },
+      "panel": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.48,
+        "avg_target_dim_drop": 0.67
+      }
+    },
+    "shuffle": {
+      "target_dimension": "reasoning",
+      "Phi-4 mini (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.62,
+        "avg_target_dim_drop": 0.83
+      },
+      "Mistral 7B (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.29,
+        "avg_target_dim_drop": 0.83
+      },
+      "panel": {
+        "detected": 6,
+        "ties": 0,
+        "n": 6,
+        "avg_total_drop": 0.46,
+        "avg_target_dim_drop": 0.83
+      }
+    },
+    "one_sided": {
+      "target_dimension": "nuance",
+      "Phi-4 mini (judge)": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.62,
+        "avg_target_dim_drop": 0.83
+      },
+      "Mistral 7B (judge)": {
+        "detected": 4,
+        "ties": 2,
+        "n": 6,
+        "avg_total_drop": 0.29,
+        "avg_target_dim_drop": 0.67
+      },
+      "panel": {
+        "detected": 5,
+        "ties": 1,
+        "n": 6,
+        "avg_total_drop": 0.46,
+        "avg_target_dim_drop": 0.75
+      }
+    }
+  },
+  "avg_chars_removed_pct": {
+    "truncate": 64.1,
+    "factual_errors": -6.4,
+    "shuffle": 2.4,
+    "one_sided": 35.0
+  },
+  "pass_threshold": 0.8,
+  "passed": true,
+  "conclusion": "The judge panel scored the damaged copy lower in 83% of 24 original-vs-damaged pairs (6 questions x 4 kinds of damage). It reliably detects quality loss, so its scores can be used as evidence.",
+  "method": "absolute"
+}

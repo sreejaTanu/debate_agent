@@ -1,0 +1,102 @@
+{
+  "total_questions": 6,
+  "debate_win_count": 1,
+  "debate_tie_count": 2,
+  "debate_loss_count": 3,
+  "debate_win_rate": 0.16666666666666666,
+  "debate_non_loss_rate": 0.5,
+  "avg_margin_over_best_individual": -0.08333333333333333,
+  "debate_avg_score": 8.895833333333334,
+  "individual_model_avg_scores": {
+    "Llama 3.2 3B": 8.729166666666666,
+    "Qwen 2.5 3B": 8.8125,
+    "Gemma 3 4B": 8.958333333333334
+  },
+  "best_overall_individual": "Gemma 3 4B",
+  "vs_best_overall": {
+    "model": "Gemma 3 4B",
+    "wins": 1,
+    "losses": 2,
+    "ties": 3,
+    "avg_margin": -0.0625,
+    "wilcoxon_p_value": null
+  },
+  "pairwise_vs_models": {
+    "Llama 3.2 3B": {
+      "wins": 5,
+      "ties": 0,
+      "losses": 1,
+      "avg_preference_for_debate": 0.75,
+      "sign_test_p_value": 0.21875
+    },
+    "Qwen 2.5 3B": {
+      "wins": 5,
+      "ties": 0,
+      "losses": 1,
+      "avg_preference_for_debate": 0.6875,
+      "sign_test_p_value": 0.21875
+    },
+    "Gemma 3 4B": {
+      "wins": 1,
+      "ties": 2,
+      "losses": 3,
+      "avg_preference_for_debate": 0.375,
+      "sign_test_p_value": 0.625
+    }
+  },
+  "avg_answer_chars": {
+    "debate": 4963.666666666667,
+    "Gemma 3 4B": 6497.666666666667
+  },
+  "avg_debate_usage_per_question": {
+    "model_calls": 19.166666666666668,
+    "total_input_tokens": 36786.333333333336,
+    "total_output_tokens": 11845.333333333334,
+    "wall_clock_seconds": 2015.9904857079189
+  },
+  "per_category": {
+    "strategy": {
+      "debate_wins": 0,
+      "total": 1,
+      "avg_margin": -0.25,
+      "win_rate": 0.0
+    },
+    "ethics": {
+      "debate_wins": 0,
+      "total": 1,
+      "avg_margin": -0.25,
+      "win_rate": 0.0
+    },
+    "analysis": {
+      "debate_wins": 0,
+      "total": 1,
+      "avg_margin": 0.0,
+      "win_rate": 0.0
+    },
+    "creative": {
+      "debate_wins": 0,
+      "total": 1,
+      "avg_margin": 0.0,
+      "win_rate": 0.0
+    },
+    "technical": {
+      "debate_wins": 0,
+      "total": 1,
+      "avg_margin": -0.125,
+      "win_rate": 0.0
+    },
+    "policy": {
+      "debate_wins": 1,
+      "total": 1,
+      "avg_margin": 0.125,
+      "win_rate": 1.0
+    }
+  },
+  "conclusion": "On 6 questions, the debate answer beat Gemma 3 4B (best model overall) on 1, lost on 2, average margin -0.06/10 (Wilcoxon not computed (too few non-tied questions)). Against the per-question oracle (whichever model scored highest on each question) it won 1, tied 2, lost 3, margin -0.08. The debate answer does NOT beat the best single model on this set. That is a finding, not a failure: the extra cost is not justified by quality here.",
+  "judges": [
+    "Phi-4 mini (judge)",
+    "Ministral 3 3B (judge)"
+  ],
+  "dry_run": false,
+  "questions_requested": 6
+}

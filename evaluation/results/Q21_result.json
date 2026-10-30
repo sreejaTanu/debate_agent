@@ -1,0 +1,222 @@
+{
+  "question_id": "Q21",
+  "question": "What is the right level of test coverage for a fast-moving startup versus an enterprise system handling financial transactions? How should the testing strategy differ, and what are the risks of each approach?",
+  "category": "technical",
+  "individual_scores": {
+    "Llama 3.2 3B": {
+      "avg_weighted_total": 8.75,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 4913
+    },
+    "Qwen 2.5 3B": {
+      "avg_weighted_total": 9.125,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.5
+      },
+      "answer_chars": 4418
+    },
+    "Gemma 3 4B": {
+      "avg_weighted_total": 9.0,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.0
+      },
+      "answer_chars": 6568
+    }
+  },
+  "debate_score": {
+    "avg_weighted_total": 9.0,
+    "avg_dimensions": {
+      "completeness": 9.0,
+      "accuracy": 9.0,
+      "reasoning": 9.0,
+      "nuance": 9.0
+    },
+    "answer_chars": 6907
+  },
+  "base_answer_model": "Gemma 3 4B",
+  "debate_usage": {
+    "model_calls": 17,
+    "total_input_tokens": 36638,
+    "total_output_tokens": 11477,
+    "wall_clock_seconds": 287.2416925430298
+  },
+  "debate_rounds_run": 1,
+  "pairwise_preference_for_debate": {
+    "Llama 3.2 3B": 1.0,
+    "Qwen 2.5 3B": 1.0,
+    "Gemma 3 4B": 0.625
+  },
+  "pairwise_verdicts": {
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "TIE"
+      }
+    ]
+  },
+  "judge_scores": {
+    "debate": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ],
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 9.0
+        },
+        "weighted_total": 9.0
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ]
+  },
+  "best_individual_model": "Qwen 2.5 3B",
+  "best_individual_score": 9.125,
+  "debate_wins": false,
+  "margin": -0.125
+}

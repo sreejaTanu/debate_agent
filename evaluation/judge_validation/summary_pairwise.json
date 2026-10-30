@@ -1,0 +1,60 @@
+{
+  "method": "pairwise",
+  "questions": [
+    "Q01",
+    "Q06",
+    "Q11",
+    "Q16",
+    "Q21",
+    "Q26"
+  ],
+  "pairs_per_judge": 24,
+  "judges": [
+    "Phi-4 mini (judge)",
+    "Ministral 3 3B (judge)"
+  ],
+  "detection_rate": {
+    "panel": 0.875
+  },
+  "per_perturbation": {
+    "truncate": {
+      "target_dimension": "completeness",
+      "panel": {
+        "detected": 6,
+        "ties": 0,
+        "n": 6,
+        "avg_preference_for_original": 0.7708333333333334
+      }
+    },
+    "factual_errors": {
+      "target_dimension": "accuracy",
+      "panel": {
+        "detected": 6,
+        "ties": 0,
+        "n": 6,
+        "avg_preference_for_original": 0.7083333333333334
+      }
+    },
+    "shuffle": {
+      "target_dimension": "reasoning",
+      "panel": {
+        "detected": 6,
+        "ties": 0,
+        "n": 6,
+        "avg_preference_for_original": 0.7291666666666666
+      }
+    },
+    "one_sided": {
+      "target_dimension": "nuance",
+      "panel": {
+        "detected": 3,
+        "ties": 3,
+        "n": 6,
+        "avg_preference_for_original": 0.6875
+      }
+    }
+  },
+  "pass_threshold": 0.8,
+  "passed": true,
+  "conclusion": "The judge panel ranked the original above the damaged copy in 88% of 24 pairs (6 questions x 4 kinds of damage). It reliably detects quality loss."
+}

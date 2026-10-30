@@ -1,0 +1,222 @@
+{
+  "question_id": "Q26",
+  "question": "Should governments mandate algorithmic transparency for AI systems that make decisions affecting people's lives (loans, hiring, sentencing)? What are the practical limitations?",
+  "category": "policy",
+  "individual_scores": {
+    "Llama 3.2 3B": {
+      "avg_weighted_total": 8.75,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 8.0
+      },
+      "answer_chars": 3657
+    },
+    "Qwen 2.5 3B": {
+      "avg_weighted_total": 8.5,
+      "avg_dimensions": {
+        "completeness": 8.5,
+        "accuracy": 9.0,
+        "reasoning": 8.5,
+        "nuance": 8.0
+      },
+      "answer_chars": 3538
+    },
+    "Gemma 3 4B": {
+      "avg_weighted_total": 9.0,
+      "avg_dimensions": {
+        "completeness": 9.0,
+        "accuracy": 9.0,
+        "reasoning": 9.0,
+        "nuance": 9.0
+      },
+      "answer_chars": 6931
+    }
+  },
+  "debate_score": {
+    "avg_weighted_total": 9.125,
+    "avg_dimensions": {
+      "completeness": 9.0,
+      "accuracy": 9.0,
+      "reasoning": 9.0,
+      "nuance": 9.5
+    },
+    "answer_chars": 3879
+  },
+  "base_answer_model": "Llama 3.2 3B",
+  "debate_usage": {
+    "model_calls": 20,
+    "total_input_tokens": 33635,
+    "total_output_tokens": 10827,
+    "wall_clock_seconds": 285.45196437835693
+  },
+  "debate_rounds_run": 2,
+  "pairwise_preference_for_debate": {
+    "Llama 3.2 3B": 0.75,
+    "Qwen 2.5 3B": 0.625,
+    "Gemma 3 4B": 0.125
+  },
+  "pairwise_verdicts": {
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "B"
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "TIE"
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "A",
+        "winner": "B"
+      },
+      {
+        "judge": "Phi-4 mini (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "A",
+        "winner": "TIE"
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "first_shown_as": "B",
+        "winner": "A"
+      }
+    ]
+  },
+  "judge_scores": {
+    "debate": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 9.0
+        },
+        "weighted_total": 9.0
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ],
+    "Llama 3.2 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      }
+    ],
+    "Qwen 2.5 3B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 8.0,
+          "accuracy": 9.0,
+          "reasoning": 8.0,
+          "nuance": 7.0
+        },
+        "weighted_total": 8.0
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 9.0
+        },
+        "weighted_total": 9.0
+      }
+    ],
+    "Gemma 3 4B": [
+      {
+        "judge": "Phi-4 mini (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 8.0
+        },
+        "weighted_total": 8.75
+      },
+      {
+        "judge": "Ministral 3 3B (judge)",
+        "dimensions": {
+          "completeness": 9.0,
+          "accuracy": 9.0,
+          "reasoning": 9.0,
+          "nuance": 10.0
+        },
+        "weighted_total": 9.25
+      }
+    ]
+  },
+  "best_individual_model": "Gemma 3 4B",
+  "best_individual_score": 9.0,
+  "debate_wins": true,
+  "margin": 0.125
+}
